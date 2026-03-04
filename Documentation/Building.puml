@@ -1,0 +1,56 @@
+@startuml
+!pragma layout smetana
+
+class Lamp {
+    int watt
+    boolean isOn
+    --
+    + Lamp(int watt)
+    + void turnOn()
+    + void turnOff()
+    + int getWatt()
+    + boolean isOn()
+    + String toString()
+}
+
+class Window {
+    int widthCm
+    int heightCm
+    --
+    + Window(int widthCm, int heightCm)
+    + int getAreaCm2()
+    + int getWidthCm()
+    + int getHeightCm()
+    + String toString()
+}
+
+class Room {
+    String name
+    ArrayList<Lamp> lamps
+    ArrayList<Window> windows
+    --
+    + Room(String name)
+    + void addLamp(Lamp lamp)
+    + void addWindow(Window window)
+    + int getLampCount()
+    + int getTotalWatt()
+    + int getTotalWindowArea()
+    + void printRoom()
+}
+
+class Building {
+    String name
+    ArrayList<Room> rooms
+    --
+    + Building(String name)
+    + void addRoom(Room room)
+    + int getTotalLampCount()
+    + int getTotalWatt()
+    + void printBuilding()
+}
+
+Building o-- Room : has a
+Room o-- Lamp : has a
+Room o-- Window : has a
+
+@enduml
