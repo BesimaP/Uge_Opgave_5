@@ -1,0 +1,50 @@
+@startuml
+!pragma layout smetana
+
+abstract class Animal {
+    String name
+    int energy
+    --
+    + Animal(String name, int energy)
+    + String getName()
+    + int getEnergy()
+    + void setEnergy(int energy)
+    + boolean isActive()
+    + {abstract} int attack()
+    + String toString()
+}
+
+class Lion {
+    --
+    + Lion(String name)
+    + int attack()
+}
+
+class Wolf {
+    --
+    + Wolf(String name)
+    + int attack()
+}
+
+class Rabbit {
+    --
+    + Rabbit(String name)
+    + int attack()
+}
+
+class Contest {
+    Animal animal1
+    Animal animal2
+    int roundCount
+    --
+    + Contest(Animal animal1, Animal animal2)
+    + void playRound()
+    + Animal getWinner()
+}
+
+Animal <|-- Lion : is a
+Animal <|-- Wolf : is a
+Animal <|-- Rabbit : is a
+Contest o-- Animal : has a
+
+@enduml

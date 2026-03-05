@@ -18,18 +18,32 @@ import java.util.ArrayList;
 
         // Beregner og returnerer det samlede antal lamper i hele bygningen
         public int getTotalLampCount() {
-            return 0;
+            int total = 0;
+            for(Room room : rooms)
+                total += room.getLampCount();
+            return total;
         }
 
         // Beregner og returnerer det samlede wattal for hele bygningen
         public int getTotalWatt() {
-            return 0;
+            int total = 0;
+            for(Room room : rooms){
+                total += room.getTotalWatt();
+            }
+            return total;
         }
 
         // Printer bygningens navn og alle rum med deres lamper og vinduer
         public void printBuilding() {
+            System.out.println("~~~~~~~~~" + name + "~~~~~~~~~");
+            for (Room room : rooms) {
+                System.out.println();
+                room.printRoom();
+                }
+
+            System.out.println();
+            System.out.println("Total: " + getTotalLampCount() + " lamper, " + getTotalWatt() + "W");
 
         }
-
 
     }
