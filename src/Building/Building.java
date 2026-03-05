@@ -3,8 +3,8 @@ package Building;
 import java.util.ArrayList;
 
     public class Building {
-        String name;
-        ArrayList<Room>rooms;
+        private String name;
+        private ArrayList<Room>rooms;
 
         public Building (String name){
             this.name = name;
@@ -19,8 +19,9 @@ import java.util.ArrayList;
         // Beregner og returnerer det samlede antal lamper i hele bygningen
         public int getTotalLampCount() {
             int total = 0;
-            for(Room room : rooms)
+            for(Room room : rooms) {
                 total += room.getLampCount();
+            }
             return total;
         }
 
@@ -41,6 +42,7 @@ import java.util.ArrayList;
                 room.printRoom();
                 }
 
+            // Jeg printer totalen til sidst så man får et samlet overblik over hele bygningen
             System.out.println();
             System.out.println("Total: " + getTotalLampCount() + " lamper, " + getTotalWatt() + "W");
 

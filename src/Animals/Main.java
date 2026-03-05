@@ -2,7 +2,7 @@ package Animals;
 
 import java.util.ArrayList;
 
-public class Main {
+    public class Main {
         public static void main(String[] args) {
             // Opret mindst fire dyr af mindst tre forskellige typer
             ArrayList<Animal> animals = new ArrayList<>();
@@ -11,6 +11,8 @@ public class Main {
             animals.add(new Rabbit("Black"));
             animals.add(new Lion("Mufasa"));
 
+            // Jeg printer alle dyr inden kampene starter så man kan se hvem der deltager
+            // toString() i Animal sørger automatisk for det rigtige format
             System.out.println("~~~~~~ Konkurrencen starter ~~~~~~");
             for (Animal animal : animals) {
                 System.out.println(animal);
@@ -20,13 +22,25 @@ public class Main {
             // Kamp 1: Simba vs Grey
             System.out.println("=== Kamp 1: " + animals.get(0).getName() + " vs " + animals.get(1).getName() + " ===");
             Contest contest1 = new Contest(animals.get(0), animals.get(1));
+
+            // Jeg bruger en while-løkke fordi jeg ikke ved på forhånd hvor mange runder kampen varer
+            // Løkken kører indtil getWinner() returnerer et dyr i stedet for null
             while (contest1.getWinner() == null){
                 contest1.playRound();
             }
             System.out.println();
             System.out.println("Vinder: " + contest1.getWinner() + "\n");
+
+            // Kamp 2: Black vs Mufasa
+            System.out.println("=== Kamp 2: " + animals.get(2).getName() + " vs " + animals.get(3).getName() + " ===");
+            Contest contest2 = new Contest(animals.get(2), animals.get(3));
+
+            // Jeg bruger en while-løkke fordi jeg ikke ved på forhånd hvor mange runder kampen varer
+            // Løkken kører indtil getWinner() returnerer et dyr i stedet for null
+            while (contest2.getWinner() == null){
+                contest2.playRound();
+            }
+            System.out.println();
+            System.out.println("Vinder: " + contest2.getWinner() + "\n");
         }
-
-
-
     }

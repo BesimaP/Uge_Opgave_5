@@ -19,8 +19,6 @@ class Window {
     --
     + Window(int widthCm, int heightCm)
     + int getAreaCm2()
-    + int getWidthCm()
-    + int getHeightCm()
     + String toString()
 }
 

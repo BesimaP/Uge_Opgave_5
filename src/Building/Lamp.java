@@ -19,12 +19,14 @@ package Building;
             isOn = false;
         }
 
-        // Returnerer lampens watt
+        // Jeg laver getWatt() fordi watt er private og Room skal bruge det
+        // til at beregne det samlede wattal i getTotalWatt()
         public int getWatt() {
             return watt;
         }
 
-        //Returnerer om lampen er tændt
+        // Jeg laver isOn() så man udefra kan tjekke om lampen er tændt
+        // uden at kunne ændre tilstanden direkte
         public boolean isOn(){
             return isOn;
         }

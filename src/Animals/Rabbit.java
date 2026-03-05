@@ -3,7 +3,7 @@ package Animals;
     public class Rabbit extends Animal{
 
         public Rabbit(String name){
-            super(name, 120);
+            super(name, 150);
         }
 
         // Returnerer altid 4 i skade

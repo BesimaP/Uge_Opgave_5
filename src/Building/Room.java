@@ -3,9 +3,9 @@ package Building;
 import java.util.ArrayList;
 
     public class Room {
-        String name;
-        ArrayList<Lamp> lamps;
-        ArrayList<Window> windows;
+        private String name;
+        private ArrayList<Lamp> lamps;
+        private ArrayList<Window> windows;
 
         // Konstruktør – opretter et rum med et navn og tomme lister
         public Room(String name){
@@ -34,7 +34,8 @@ import java.util.ArrayList;
             return lamps.size();
         }
 
-        // Beregner og returnerer den samlede watt for alle lamper i rummet
+        // Jeg starter total på 0 og lægger hver lampes watt til
+        // fordi jeg skal summere alle lamper – jeg kan ikke gøre det på én linje
         public int getTotalWatt() {
             int total = 0;
             for (Lamp lamp : lamps){
@@ -57,20 +58,26 @@ import java.util.ArrayList;
             System.out.println(name + " (" + lamps.size() + " lamper, " + windows.size() + " vinduer)");
 
             // Byg lampeliste som tekst
-            StringBuilder lamp = new StringBuilder("  Lamper: ");
-            for (int i = 0; i < lamps.size(); i++) {
-                lamp.append(lamps.get(i));
-                if (i < lamps.size() - 1) lamp.append(", ");
-            }
-            lamp.append(" (total: ").append(getTotalWatt()).append("W)");
-            System.out.println(lamp);
+            String lampOutput = "  Lamper: ";
 
-            // Byg vinduesliste som tekst
-            StringBuilder window = new StringBuilder("  Vinduer: ");
-            for (int i = 0; i < windows.size(); i++) {
-                window.append(windows.get(i));
-                if (i < windows.size() - 1) window.append(", ");
+            // Jeg bruger et tal-baseret for-loop fordi jeg skal vide om jeg er på det sidste element
+            for (int i = 0; i < lamps.size(); i++) {
+                // Tilføj lampens watt til teksten, fx "60W"
+                lampOutput += lamps.get(i);
+                // Hvis vi ikke er på det sidste element, tilføj komma og mellemrum
+                // Det sikrer at output bliver "60W, 60W, 100W" og ikke "60W, 60W, 100W,"
+                if (i < lamps.size() - 1) lampOutput += ", ";
             }
-            System.out.println(window);
+            // Tilføj det samlede wattal til sidst
+            lampOutput += " (total: " + getTotalWatt() + "W)";
+            System.out.println(lampOutput);
+
+            // Samme fremgangsmåde til vinduer
+            String windowOutput = "  Vinduer: ";
+            for (int i = 0; i < windows.size(); i++) {
+                windowOutput += windows.get(i);
+                if (i < windows.size() - 1) windowOutput += ", ";
+            }
+            System.out.println(windowOutput);
         }
     }
