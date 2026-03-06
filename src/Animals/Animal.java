@@ -3,8 +3,8 @@ package Animals;
 // Ved at samle det her slipper jeg for at skrive de samme felter i Lion, Wolf og Rabbit
 
     public abstract class Animal {
-        private String name;
-        private int energy;
+        protected String name;
+        protected int energy;
 
         // Jeg tager både navn og energi ind i konstruktøren fordi hver subklasse
         // skal kunne bestemme sin egen startenergi via super()

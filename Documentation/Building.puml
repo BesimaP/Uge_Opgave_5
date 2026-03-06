@@ -9,7 +9,6 @@ class Lamp {
     + void turnOn()
     + void turnOff()
     + int getWatt()
-    + boolean isOn()
     + String toString()
 }
 
@@ -28,6 +27,7 @@ class Room {
     ArrayList<Window> windows
     --
     + Room(String name)
+    + String getName
     + void addLamp(Lamp lamp)
     + void addWindow(Window window)
     + int getLampCount()

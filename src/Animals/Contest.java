@@ -28,7 +28,6 @@ package Animals;
             // og sætter det nye tal med setEnergy() – alt på én linje fordi jeg ikke
             // behøver gemme resultatet, da getEnergy() automatisk returnerer den opdaterede værdi bagefter
             animal2.setEnergy(animal2.getEnergy() - damage1);
-            animal2.setEnergy(animal2.getEnergy() - damage1);
             System.out.println(animal1.getName() + " angriber " + animal2.getName() + " for " + damage1 + "! (" + animal2.getName() + " har " + animal2.getEnergy() + " energi tilbage)");
 
             // Jeg tjekker om dyr 2 stadig er aktivt inden det angriber tilbage

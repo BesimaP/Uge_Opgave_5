@@ -6,7 +6,7 @@ package Animals;
 
         // Jeg kalder super() med 80 energi – løven starter med middel energi
         public Lion(String name){
-            super(name,80);
+            super(name,100);
         }
 
         // Returnerer altid 25 i skade

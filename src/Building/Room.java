@@ -55,12 +55,13 @@ import java.util.ArrayList;
 
         //Printer rummets navn, lamper og vinduer til konsollen
         public void printRoom() {
+            //lamps.size() tæller automatisk hvor mange lamper der er i listen. Resultatet bliver fx Mødelokale (3 lamper, 2 vinduer).
             System.out.println(name + " (" + lamps.size() + " lamper, " + windows.size() + " vinduer)");
 
             // Byg lampeliste som tekst
             String lampOutput = "  Lamper: ";
 
-            // Jeg bruger et tal-baseret for-loop fordi jeg skal vide om jeg er på det sidste element
+            //lamps.get(i) henter lampen på plads i og kalder automatisk dens toString() som giver fx 60W. Kommaet tilføjes kun hvis vi ikke er på det sidste element.
             for (int i = 0; i < lamps.size(); i++) {
                 // Tilføj lampens watt til teksten, fx "60W"
                 lampOutput += lamps.get(i);
@@ -68,7 +69,7 @@ import java.util.ArrayList;
                 // Det sikrer at output bliver "60W, 60W, 100W" og ikke "60W, 60W, 100W,"
                 if (i < lamps.size() - 1) lampOutput += ", ";
             }
-            // Tilføj det samlede wattal til sidst
+            // Kalder getTotalWatt() som allerede er beregnet og hæfter det på slutningen.
             lampOutput += " (total: " + getTotalWatt() + "W)";
             System.out.println(lampOutput);
 
